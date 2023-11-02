@@ -24,4 +24,12 @@ CREATE TABLE "treatments"
   "name" VARCHAR(255)
 );
 
-
+CREATE TABLE "invoices"
+(
+  "id" SERIAL PRIMARY KEY,
+  "total_amount" DECIMAL,
+  "generated_at" TIMESTAMP,
+  "paid_at" TIMESTAMP,
+  "medical_history_id" INTEGER,
+  FOREIGN KEY ("medical_history_id") REFERENCES "medical_histories" ("id")
+);
