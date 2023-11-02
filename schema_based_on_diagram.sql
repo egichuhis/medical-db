@@ -24,6 +24,20 @@ CREATE TABLE "treatments"
   "name" VARCHAR(255)
 );
 
+CREATE TABLE "medical_histories_treatments"
+(
+  "id" SERIAL PRIMARY KEY,
+  "medical_history_id" INTEGER,
+  "treatment_id" INTEGER,
+  FOREIGN KEY ("medical_history_id") REFERENCES "medical_histories" ("id"),
+  FOREIGN KEY ("treatment_id") REFERENCES "treatments" ("id")
+);
+
+CREATE INDEX ON "medical_histories_treatments"
+("medical_history_id");
+CREATE INDEX ON "medical_histories_treatments"
+("treatment_id");
+
 CREATE TABLE "invoices"
 (
   "id" SERIAL PRIMARY KEY,
@@ -48,7 +62,6 @@ CREATE TABLE "invoice_items"
   FOREIGN KEY ("invoice_id") REFERENCES "invoices" ("id"),
   FOREIGN KEY ("treatment_id") REFERENCES "treatments" ("id")
 );
-
 
 CREATE INDEX ON "invoice_items"
 ("invoice_id");
