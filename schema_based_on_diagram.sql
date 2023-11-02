@@ -21,3 +21,17 @@ CREATE TABLE "patients"
   "name" VARCHAR(255),
   "date_of_birth" DATE
 );
+
+CREATE TABLE "invoices"
+(
+  "id" SERIAL PRIMARY KEY,
+  "total_amount" DECIMAL,
+  "generated_at" TIMESTAMP,
+  "paid_at" TIMESTAMP,
+  "medical_history_id" INTEGER,
+  FOREIGN KEY ("medical_history_id") REFERENCES "medical_histories" ("id")
+);
+
+CREATE INDEX ON "invoices"
+("medical_history_id");
+
