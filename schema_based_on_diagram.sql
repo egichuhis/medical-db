@@ -49,6 +49,7 @@ CREATE TABLE "invoice_items"
   FOREIGN KEY ("treatment_id") REFERENCES "treatments" ("id")
 );
 
+
 CREATE INDEX ON "invoice_items"
 ("invoice_id");
 CREATE INDEX ON "invoice_items"
