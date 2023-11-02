@@ -35,3 +35,5 @@ CREATE TABLE "invoices"
 CREATE INDEX ON "invoices"
 ("medical_history_id");
 
+
+
